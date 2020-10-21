@@ -4,29 +4,49 @@ import cat.tecnocampus.courseProject.application.dto.BidDTO;
 
 public class Bid {
 
-	private String id;
+	private String idAbsUser;
+	private String idAuction;
+	private String idBid;
 	private float quantity;
 	private float price;
 	private boolean winner;
-	public Bid(String id, float quantity, float price, boolean winner) {
+	
+	public Bid(String idAbsUser,String idAuction, String idBid, float quantity, float price, boolean winner) {
 		super();
-		this.id = id;
+		this.idAbsUser = idAbsUser;
+		this.idAuction = idAuction;
+		this.idBid = idBid;
 		this.quantity = quantity;
 		this.price = price;
 		this.winner = winner;
 	}
 	public Bid(BidDTO bid) {
-		this.id = bid.getId();
+		this.idAbsUser =bid.getIdAbsUser();
+		this.idAuction = bid.getIdAuction();
+		this.idBid = bid.getIdBid();
 		this.quantity = bid.getQuantity();
 		this.price = bid.getPrice();
 		this.winner = bid.isWinner();
 	}
 	
-	public String getId() {
-		return id;
+	
+	public String getIdAbsUser() {
+		return idAbsUser;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setIdAbsUser(String idAbsUser) {
+		this.idAbsUser = idAbsUser;
+	}
+	public String getIdAuction() {
+		return idAuction;
+	}
+	public void setIdAuction(String idAuction) {
+		this.idAuction = idAuction;
+	}
+	public String getIdBid() {
+		return idBid;
+	}
+	public void setIdBid(String idBid) {
+		this.idBid = idBid;
 	}
 	public float getQuantity() {
 		return quantity;
