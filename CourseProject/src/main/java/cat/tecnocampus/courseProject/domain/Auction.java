@@ -1,6 +1,7 @@
 package cat.tecnocampus.courseProject.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
 import cat.tecnocampus.courseProject.application.dto.AuctionDTO;
@@ -8,13 +9,14 @@ import cat.tecnocampus.courseProject.application.dto.BidDTO;
 
 public class Auction {
 	
-	private String idBroker;
 	private String idAuction;
-	private boolean active;
 	private float quantity;
+	private float price;
 	private Date initialDate;
 	private Date finalDate;
-	private float price;
+	private boolean active;	
+	private String idBroker;
+	
 	private ArrayList<Bid> bidsOfAuction;
 	
 	public Auction(String idBroker, String idAuction, boolean active, float quantity, Date initialDate, Date finalDate, float price) {
@@ -54,6 +56,18 @@ public class Auction {
 			//UTILITZAR COMPARATOR PEL METODE COLLECTIONS.SORT(LIST, COMPARATOR)
 			//this.bidsOfAuction = this.bidsOfAuction.OrderBy().ToList();
 			//List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();
+		}
+	}
+	
+	class priceComparator implements Comparator<Bid> {
+	    public int compare(Bid o1, Bid o2) {
+			if (o1.getPrice() > o2.getPrice()) {
+				return 1;
+			}
+			else if (o1.getPrice() < o2.getPrice()) {
+				return -1;
+			}
+			return 0;
 		}
 	}
 	
